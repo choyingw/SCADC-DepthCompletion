@@ -3,15 +3,19 @@ Scene Completeness-Aware Lidar Depth Completion for Driving Scenario, ICASSP 202
 
 Cho-Ying Wu and Ulrich Neumann
 
-<img src='ICASSP21_gif.gif'>
+<img src='demo.gif'>
 
 The full example video link is here https://www.youtube.com/watch?v=FQDTdpMPKxs
 
 Paper: https://arxiv.org/abs/2003.06945
 
 \+ **First research to attend scene completeness issue in sensor fusion
-\+ Sensor Fusion for lidar and stereo cameras
-\+ Structured upper scene depth
-\+ Precise lower scene**
+
+\+ **Sensor Fusion for lidar and stereo cameras
+
+\+ **Structured upper scene depth
+
+\+ **Precise lower scene**
+
 
 Code is coming soon!
