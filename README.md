@@ -1,7 +1,7 @@
 # SCADC-DepthCompletion
 Scene Completeness-Aware Lidar Depth Completion for Driving Scenario, ICASSP 2021
 
-Cho-Ying Wu and Ulrich Neumann
+Cho-Ying Wu and Ulrich Neumann, Universit of Southern California
 
 <img src='demo.gif'>
 
