@@ -9,13 +9,15 @@ The full example video link is here https://www.youtube.com/watch?v=FQDTdpMPKxs
 
 Paper: https://arxiv.org/abs/2003.06945
 
-\+ **First research to attend scene completeness issue in sensor fusion
+**Advantage:**
 
-\+ **Sensor Fusion for lidar and stereo cameras
+    \+ **First research to attend scene completeness issue in sensor fusion**
 
-\+ **Structured upper scene depth
+    \+ **Sensor Fusion for lidar and stereo cameras**
 
-\+ **Precise lower scene**
+    \+ **Structured upper scene depth**
+
+    \+ **Precise lower scene**
 
 
 Code is coming soon!
