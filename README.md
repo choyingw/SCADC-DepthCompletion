@@ -11,13 +11,13 @@ Paper: https://arxiv.org/abs/2003.06945
 
 **Advantage:**
 
-    \+ **First research to attend scene completeness issue in sensor fusion**
+\+ **First research to attend scene completeness issue in sensor fusion**
 
-    \+ **Sensor Fusion for lidar and stereo cameras**
+\+ **Sensor Fusion for lidar and stereo cameras**
 
-    \+ **Structured upper scene depth**
+\+ **Structured upper scene depth**
 
-    \+ **Precise lower scene**
+\+ **Precise lower scene**
 
 
 Code is coming soon!
