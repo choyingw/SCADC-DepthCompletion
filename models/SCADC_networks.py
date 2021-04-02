@@ -122,47 +122,6 @@ class SAConvBlock(nn.Module):
 		
 		return x, m
 
-# class Decoder(nn.Module):
-# 	# Decoder is the base class for all decoders
-
-# 	def __init__(self):
-# 		super(Decoder, self).__init__()
-
-# 		self.layer1 = None
-# 		self.layer2 = None
-# 		self.layer3 = None
-# 		self.layer4 = None
-
-# 	def forward(self, x):
-# 		x = self.layer1(x)
-# 		x = self.layer2(x)
-# 		x = self.layer3(x)
-# 		x = self.layer4(x)
-# 		return x
-
-# class DeConv(Decoder):
-# 	def __init__(self, in_channels, kernel_size):
-# 		assert kernel_size>=2, "kernel_size out of range: {}".format(kernel_size)
-# 		super(DeConv, self).__init__()
-
-# 		def convt(in_channels):
-# 			stride = 2
-# 			padding = (kernel_size - 1) // 2
-# 			output_padding = kernel_size % 2
-# 			assert -2 - 2*padding + kernel_size + output_padding == 0, "deconv parameters incorrect"
-
-# 			module_name = "deconv{}".format(kernel_size)
-# 			return nn.Sequential(collections.OrderedDict([
-# 				  (module_name, nn.ConvTranspose2d(in_channels,in_channels//2,kernel_size,
-# 						stride,padding,output_padding,bias=False)),
-# 				  ('batchnorm', nn.BatchNorm2d(in_channels//2)),
-# 				  ('relu',	  nn.ReLU(inplace=True)),
-# 				]))
-# 		self.layer1 = convt(in_channels)
-# 		self.layer2 = convt(in_channels // 2)
-# 		self.layer3 = convt(in_channels // (2 ** 2))
-# 		self.layer4 = convt(in_channels // (2 ** 3))
-
 
 def make_blocks_from_names(names,in_dim,out_dim):
 	layers = []
