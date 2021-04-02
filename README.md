@@ -29,7 +29,7 @@ Paper: https://arxiv.org/abs/2003.06945
 
 # Data Preparation
 
-Clone the folder first.
+Clone the repo first.
 
 Then, download preprocessed data from <a href="https://drive.google.com/file/d/1c78Ox6KfaUkXZf4qx5hVly9Na_QJ5VIv/view?usp=sharing">here</a>. (153G) This data includes training/testing split that follows KITTI Completion and all required pre-processed data for this work. 
 
@@ -37,9 +37,13 @@ Extract the files under the repository. The structure should be like 'SCADC-Dept
 
 \*.h5 files are provided, including sparse depth, semi-dense depth, left-right pairs, depth completed from <a href="https://github.com/fangchangma/self-supervised-depth-completion">SSDC</a>, and disparity from <a href="https://github.com/JiaRenChang/PSMNet">PSMNet</a>.
 
-# Sample Evaluation/Training Commands:
+# Evaluation/Training Commands:
+
+Our provided pretrained weight is under './test_ckpt/kitti/'. To quickly get our scene completeness-aware depth maps, just use the evaluation command, and it will save frame-by-frame results under './vis/'.
 
 	python3 evaluate.py --name kitti --checkpoints_dir './test_ckpt'--test_path [test_data_dir]
+
+This is the training command is you want ot train the network yourself.
 
 	python3 train_depth_complete.py --name kitti --checkpoints_dir [preferred saving ckpt path] --train_path [train_data_dir] --test_path [test_data_dir]
 
@@ -48,17 +52,19 @@ Extract the files under the repository. The structure should be like 'SCADC-Dept
 
 # Customized depth completion and stereo estimation base methods:
 
-Note that we use <a href="https://github.com/fangchangma/self-supervised-depth-completion">SSDC</a>, and disparity from <a href="https://github.com/JiaRenChang/PSMNet">PSMNet</a>. The pre-processed data is in the \*.h5 files. (key: 'depth_c' and 'disp_c'). If you want to make completion results from different basic methods, please prepare those data at your own and replace data stored in \*.h5 files.
+Note that we use <a href="https://github.com/fangchangma/self-supervised-depth-completion">SSDC</a>, and disparity from <a href="https://github.com/JiaRenChang/PSMNet">PSMNet</a>. 
+
+The pre-processed data is in the \*.h5 files. (key: 'depth_c' and 'disp_c'). If you want to make completion results from different basic methods, please prepare those data at your own and replace data stored in \*.h5 files.
 
 
 If you find our work useful, please consider to cite our work.
 
-@article{wu2020scene,
-  title={Scene Completenesss-Aware Lidar Depth Completion for Driving Scenario},
-  author={Wu, Cho-Ying and Neumann, Ulrich},
-  journal={arXiv preprint arXiv:2003.06945},
-  year={2020}
-}
+	@article{wu2020scene,
+	  title={Scene Completenesss-Aware Lidar Depth Completion for Driving Scenario},
+	  author={Wu, Cho-Ying and Neumann, Ulrich},
+	  journal={arXiv preprint arXiv:2003.06945},
+	  year={2020}
+	}
 
 # Acknowledgement
 
