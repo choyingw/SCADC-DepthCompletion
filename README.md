@@ -9,6 +9,8 @@ The full example video link is here https://www.youtube.com/watch?v=FQDTdpMPKxs
 
 Paper: https://arxiv.org/abs/2003.06945
 
+Project page: https://choyingw.github.io/works/SCADC/index.html
+
 **Advantages:**
 
 \+ **First research to attend scene-completeness in depth completion**
