@@ -1,0 +1,33 @@
+----------------- Options ---------------
+               batch_size: 4                             
+                    beta1: 0.5                           
+          checkpoints_dir: ./test_ckpt/                  	[default: ./checkpoints]
+           continue_train: False                         
+                    epoch: latest                        
+              epoch_count: 1                             
+                  gpu_ids: 0                             
+                init_gain: 0.02                          
+                init_type: xavier                        
+                  isTrain: False                         	[default: None]
+                       lr: 0.001                         
+          lr_decay_epochs: 100                           
+           lr_decay_iters: 5000000                       
+                 lr_gamma: 0.9                           
+                lr_policy: lambda                        
+                    model: SCADC                         
+                 momentum: 0.9                           
+                     name: kitti                         	[default: experiment_name]
+                    niter: 400                           
+                  no_flip: True                          
+              num_threads: 8                             
+                    phase: train                         
+               print_freq: 50                            
+           resize_or_crop: none                          
+          save_epoch_freq: 1                             
+                     seed: 0                             
+                   suffix:                               
+                test_path: /home/choyingwu/Documents/KITTI_data/DataAggr/val	[default: None]
+               train_path: /home/choyingwu/Documents/KITTI_data/DataAggr/train	[default: None]
+                  verbose: False                         
+             weight_decay: 0.0005                        
+----------------- End -------------------
