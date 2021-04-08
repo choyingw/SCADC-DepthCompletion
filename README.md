@@ -62,7 +62,7 @@ The pre-processed data is in the \*.h5 files. (key: 'depth_c' and 'disp_c'). If 
 If you find our work useful, please consider to cite our work.
 
 	@article{wu2020scene,
-	  title={Scene Completenesss-Aware Lidar Depth Completion for Driving Scenario},
+	  title={Scene Completeness-Aware Lidar Depth Completion for Driving Scenario},
 	  author={Wu, Cho-Ying and Neumann, Ulrich},
 	  journal={arXiv preprint arXiv:2003.06945},
 	  year={2020}
