@@ -6,9 +6,7 @@ import cv2
 class KITTIDataset(MyDataloader):
     def __init__(self, root, type, modality='d2sm'):
         super(KITTIDataset, self).__init__(root, type, modality)
-        ## TODO: check the kitti data size
         self.output_size = (352, 1216) 
-        #color_jitter = transforms.ColorJitter(0.4, 0.4, 0.4)
 
     def train_transform(self, disp, depth, gt_depth, s_depth):
         s = np.random.uniform(1.0, 1.5)  # random scaling
@@ -23,21 +21,13 @@ class KITTIDataset(MyDataloader):
 
         # perform 1st step of data augmentation
         transform = transforms.Compose([
-            #transforms.Crop(130, 10, 240, 1200), ## This is a way to crop the upper part
             transforms.Rotate(angle),
             transforms.Resize(resize_out),
             transforms.BottomCrop(self.output_size),
-            #transforms.CenterCrop(self.output_size),
             transforms.HorizontalFlip(do_flip)
         ])
-        # rgb_np = transform(rgb)
-        # rgb_np = self.color_jitter(rgb_np) # random color jittering
-        # rgb_np = np.asfarray(rgb_np, dtype='float') / 255
-        # Scipy affine_transform produced RuntimeError when the depth map was
-        # given as a 'numpy.ndarray'
         depth_np = np.asfarray(depth_np, dtype='float32')
         depth_np = transform(depth_np)
-        #cv2.imwrite(depth_np,)
 
         disp_np = np.asfarray(disp_np, dtype='float32')
         disp_np = transform(disp_np)
@@ -49,7 +39,6 @@ class KITTIDataset(MyDataloader):
         s_depth_np = transform(s_depth_np)
 
         return disp_np, depth_np, gt_depth_np, s_depth_np
-        #return rgb_np, depth_np
 
     def val_transform(self, disp, depth, gt_depth, s_depth):
         depth_np = depth
@@ -57,8 +46,6 @@ class KITTIDataset(MyDataloader):
         gt_depth_np = gt_depth
         s_depth_np = s_depth
         transform = transforms.Compose([
-            #transforms.Crop(130, 10, 240, 1200),
-            #transforms.CenterCrop(self.output_size),
             transforms.BottomCrop(self.output_size),
         ])
         depth_np = np.asfarray(depth_np, dtype='float32')

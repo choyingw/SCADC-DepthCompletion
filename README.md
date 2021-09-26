@@ -33,11 +33,11 @@ Project page: https://choyingw.github.io/works/SCADC/index.html
 
 Clone the repo first.
 
-Then, download preprocessed data from <a href="https://drive.google.com/file/d/1c78Ox6KfaUkXZf4qx5hVly9Na_QJ5VIv/view?usp=sharing">here</a>. (153G) This data includes training/testing split that follows KITTI Completion and all required pre-processed data for this work. 
+Then, download preprocessed data from <a href="https://drive.google.com/file/d/1c78Ox6KfaUkXZf4qx5hVly9Na_QJ5VIv/view?usp=sharing">train</a> (142G) <a href="https://drive.google.com/file/d/1RXJ5GFhE0ZIIBf4wcLXhilu4OVQ1BiEg/view?usp=sharing">val</a> (11G). This data includes training/val split that follows KITTI Completion and all required pre-processed data for this work.
 
-Extract the files under the repository. The structure should be like 'SCADC-DepthCompletion/Data/train' and 'SCADC-DepthCompletion/Data/test'
+Extract the files under the repository. The structure should be like 'SCADC-DepthCompletion/Data/train' and 'SCADC-DepthCompletion/Data/val'
 
-\*.h5 files are provided, including sparse depth, semi-dense depth, left-right pairs, depth completed from <a href="https://github.com/fangchangma/self-supervised-depth-completion">SSDC</a>, and disparity from <a href="https://github.com/JiaRenChang/PSMNet">PSMNet</a>.
+\*.h5 files are provided, including sparse depth (D), semi-dense depth (D_semi), left-right pairs (I_L and I_R), depth completed from <a href="https://github.com/fangchangma/self-supervised-depth-completion">SSDC</a> (depth_c), and disparity from <a href="https://github.com/JiaRenChang/PSMNet">PSMNet</a> (disp_c).
 
 # Evaluation/Training Commands:
 
@@ -61,12 +61,15 @@ The pre-processed data is in the \*.h5 files. (key: 'depth_c' and 'disp_c'). If 
 
 If you find our work useful, please consider to cite our work.
 
-	@article{wu2020scene,
-	  title={Scene Completenesss-Aware Lidar Depth Completion for Driving Scenario},
+	@inproceedings{wu2021scene,
+	  title={Scene Completeness-Aware Lidar Depth Completion for Driving Scenario},
 	  author={Wu, Cho-Ying and Neumann, Ulrich},
-	  journal={arXiv preprint arXiv:2003.06945},
-	  year={2020}
+	  booktitle={ICASSP 2021-2021 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
+	  pages={2490--2494},
+	  year={2021},
+	  organization={IEEE}
 	}
+
 
 # Acknowledgement
 

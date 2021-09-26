@@ -58,13 +58,6 @@ class SimulatedStereo(DenseToSparse):
         return "%s{ns=%d,md=%f,dil=%d.%d}" % \
                (self.name, self.num_samples, self.max_depth, self.dilate_kernel, self.dilate_iterations)
 
-    # We do not use cv2.Canny, since that applies non max suppression
-    # So we simply do
-    # RGB to intensitities
-    # Smooth with gaussian
-    # Take simple sobel gradients
-    # Threshold the edge gradient
-    # Dilatate
     def dense_to_sparse(self, rgb, depth):
         gray = rgb2grayscale(rgb)
         

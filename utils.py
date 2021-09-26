@@ -35,29 +35,6 @@ def Enlarge_pixel(sparse_depth):
 
     return sparse_depth
 
-# def merge_into_row_with_pred_visualize(input, depth_input, rgb_sparse,depth_target,depth_est):
-#     rgb = 255 * np.transpose(np.squeeze(input.cpu().numpy()), (1,2,0)) # H, W, C
-#     rgb_sparse = 255 * np.transpose(np.squeeze(rgb_sparse.cpu().numpy()), (1,2,0))
-#     depth_input_cpu = np.squeeze(depth_input.cpu().numpy())
-#     depth_target_cpu = np.squeeze(depth_target.cpu().numpy())
-#     depth_pred_cpu = np.squeeze(depth_est.cpu().numpy())
-
-#     d_min = min(np.min(depth_input_cpu), np.min(depth_target_cpu), np.min(depth_pred_cpu))
-#     d_max = max(np.max(depth_input_cpu), np.max(depth_target_cpu), np.min(depth_pred_cpu))
-#     depth_input_col = colored_depthmap(depth_input_cpu, d_min, d_max)
-#     # depth_target_col = colored_depthmap(depth_target_cpu, d_min, d_max)
-#     # depth_pred_col = colored_depthmap(depth_pred_cpu, d_min, d_max)
-#     depth_input_col = (depth_colorize_8(depth_input_cpu))
-#     depth_target_col = (depth_colorize_8(depth_target_cpu))
-#     depth_pred_col = depth_colorize_8(depth_pred_cpu)
-
-#     img_merge = np.hstack([rgb, depth_pred_col])
-#     #img_merge = np.hstack([rgb,depth_input_col])
-#     #depth_merge = np.hstack([depth_pred_col,depth_target_col])
-#     #img_merge = np.vstack([img_merge,depth_merge])
-
-#     return img_merge
-
 def merge_into_row_with_pred_visualize(depth_target, depth_est):
    # rgb = 255 * np.transpose(np.squeeze(input.cpu().numpy()), (1,2,0)) # H, W, C
    # rgb_sparse = 255 * np.transpose(np.squeeze(rgb_sparse.cpu().numpy()), (1,2,0))
@@ -89,8 +66,27 @@ def save_image_16(img_merge, filename):
     img_merge.save(filename)
 
 def save_image_cv2(image_numpy, image_path):
-    #image_pil = Image.fromarray(image_numpy)
     cv2.imwrite(image_path,image_numpy)
-    #image_pil.save(image_path)
 
+# def merge_into_row_with_pred_visualize(input, depth_input, rgb_sparse,depth_target,depth_est):
+#     rgb = 255 * np.transpose(np.squeeze(input.cpu().numpy()), (1,2,0)) # H, W, C
+#     rgb_sparse = 255 * np.transpose(np.squeeze(rgb_sparse.cpu().numpy()), (1,2,0))
+#     depth_input_cpu = np.squeeze(depth_input.cpu().numpy())
+#     depth_target_cpu = np.squeeze(depth_target.cpu().numpy())
+#     depth_pred_cpu = np.squeeze(depth_est.cpu().numpy())
 
+#     d_min = min(np.min(depth_input_cpu), np.min(depth_target_cpu), np.min(depth_pred_cpu))
+#     d_max = max(np.max(depth_input_cpu), np.max(depth_target_cpu), np.min(depth_pred_cpu))
+#     depth_input_col = colored_depthmap(depth_input_cpu, d_min, d_max)
+#     # depth_target_col = colored_depthmap(depth_target_cpu, d_min, d_max)
+#     # depth_pred_col = colored_depthmap(depth_pred_cpu, d_min, d_max)
+#     depth_input_col = (depth_colorize_8(depth_input_cpu))
+#     depth_target_col = (depth_colorize_8(depth_target_cpu))
+#     depth_pred_col = depth_colorize_8(depth_pred_cpu)
+
+#     img_merge = np.hstack([rgb, depth_pred_col])
+#     #img_merge = np.hstack([rgb,depth_input_col])
+#     #depth_merge = np.hstack([depth_pred_col,depth_target_col])
+#     #img_merge = np.vstack([img_merge,depth_merge])
+
+#     return img_merge

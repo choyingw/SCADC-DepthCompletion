@@ -48,9 +48,7 @@ def save_image(image_numpy, image_path):
     image_pil.save(image_path)
 
 def save_image_cv2(image_numpy, image_path):
-    #image_pil = Image.fromarray(image_numpy)
     cv2.imwrite(image_path,image_numpy)
-    #image_pil.save(image_path)
 
 
 def print_numpy(x, val=True, shp=False):

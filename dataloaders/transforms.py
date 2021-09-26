@@ -593,10 +593,6 @@ class BottomCrop(object):
         i = h - th
         j = int(round((w - tw) / 2.))
 
-        # randomized left and right cropping
-        # i = np.random.randint(i-3, i+4)
-        # j = np.random.randint(j-1, j+1)
-
         return i, j, th, tw
 
     def __call__(self, img):

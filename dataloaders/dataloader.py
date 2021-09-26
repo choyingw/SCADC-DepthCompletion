@@ -6,7 +6,6 @@ import h5py
 import dataloaders.transforms as transforms
 import torch
 import cv2
-#from utils import *
 
 IMG_EXTENSIONS = ['.h5',]
 
@@ -40,12 +39,19 @@ def make_dataset(dir, class_to_idx):
     return images
 
 def h5_loader(path):
+    # read h5 data
     h5f = h5py.File(path, "r")
-    # rgb = np.array(h5f['rgb'])
-    # rgb = np.transpose(rgb, (1, 2, 0))
+
+    # depth completed by self-supervised completion
     depth = np.array(h5f['depth_c'], dtype=np.float32)/255
+
+    # depth from PSMNet
     disp = np.array(h5f['disp_c'], dtype=np.float32)/255
+
+    # sparse depth by lidar
     s_depth = np.array(h5f['D'], dtype=np.float32)/255
+
+    # semi-dense points as the groundtruth
     gt_depth = np.array(h5f['D_semi'], dtype=np.float32)/255
     return disp, depth, gt_depth, s_depth
 
@@ -84,29 +90,6 @@ class MyDataloader(data.Dataset):
     def val_transform(rgb, disp, depth, gt_depth, s_depth):
         raise (RuntimeError("val_transform() is not implemented."))
 
-    # def create_sparse_depth(self, rgb, depth):
-    #     if self.sparsifier is None:
-    #         return depth
-    #     else:
-    #         mask_keep = self.sparsifier.dense_to_sparse(rgb, depth)
-    #         sparse_depth = np.zeros(depth.shape)
-    #         sparse_depth[mask_keep] = depth[mask_keep]
-    #         return sparse_depth
-
-    # def create_sparse_depth_rgb(self, rgb, depth):
-    #     if self.sparsifier is None:
-    #         return depth
-    #     else:
-    #         mask_keep = self.sparsifier.dense_to_sparse(rgb, depth)
-    #         sparse_depth = np.zeros(depth.shape)
-    #         sparse_depth[mask_keep] = depth[mask_keep]
-    #         sparse_rgb = np.zeros(rgb.shape)
-    #         sparse_rgb[mask_keep,:] = rgb[mask_keep,:]
-    #         sparse_mask = np.zeros(depth.shape)
-    #         sparse_mask[mask_keep] = 1
-    #         mask_keep = mask_keep.astype(np.uint8)
-    #         return sparse_depth,sparse_rgb, mask_keep
-
     def create_mask(self, s_depth):
         return s_depth > 0
     def dilate_mask(self, mask):
@@ -124,12 +107,6 @@ class MyDataloader(data.Dataset):
         d2sm = np.append(d2sm, np.expand_dims(mask_dilate, axis=2), axis=2)
         return d2sm
 
-    # def create_rgbd(self, rgb, depth):
-    #     sparse_depth = self.create_sparse_depth(rgb, depth)
-    #     rgbd = np.append(rgb, np.expand_dims(sparse_depth, axis=2), axis=2)
-
-    #     return rgbd
-
     def __getraw__(self, index):
         path, target = self.imgs[index]
         #rgb, depth = self.loader(path)
@@ -142,12 +119,6 @@ class MyDataloader(data.Dataset):
             disp_np, depth_np, gt_depth_np, s_depth_np = self.transform(disp, depth, gt_depth, s_depth)
         else:
             raise(RuntimeError("transform not defined"))
-        # randNum = int(np.random.uniform(1000))
-        # d1 = depth_colorize_8(disp_np)
-        # save_image(d1, 'vis/'+str(randNum)+'_1.png')
-
-        # d2 = depth_colorize_8(depth_np)
-        # save_image(d2, 'vis/'+str(randNum)+'_2.png')
 
         if self.modality == 'd2sm':
             input_np = self.create_d2sm(disp_np, depth_np, s_depth_np)
