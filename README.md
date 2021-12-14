@@ -1,7 +1,7 @@
 # SCADC-DepthCompletion
 Scene Completeness-Aware Lidar Depth Completion for Driving Scenario, ICASSP 2021
 
-Cho-Ying Wu and Ulrich Neumann, Universit of Southern California
+Cho-Ying Wu and Ulrich Neumann, University of Southern California
 
 <img src='demo.gif'>
 
@@ -13,13 +13,13 @@ Project page: https://choyingw.github.io/works/SCADC/index.html
 
 **Advantages:**
 
-\+ **First research to attend scene-completeness in depth completion**
+👍 **First research to attend scene-completeness in depth completion**
 
-\+ **Sensor Fusion for lidar and stereo cameras**
+👍 **Sensor Fusion for lidar and stereo cameras**
 
-\+ **Structured upper scene depth**
+👍 **Structured upper scene depth**
 
-\+ **Precise lower scene**
+👍 **Precise lower scene**
 
 # Prerequisite
 
