@@ -49,6 +49,8 @@ Our provided pretrained weight is under './test_ckpt/kitti/'. To quickly get our
                ├── 0
                    ├── 00000.h5
 		     ......
+		     
+		     
 
 	python3 evaluate.py --name kitti --checkpoints_dir './test_ckpt' --test_path ./data
 
