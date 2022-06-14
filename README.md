@@ -41,7 +41,7 @@ Extract the files under the repository. The structure should be like 'SCADC-Dept
 
 # Evaluation/Training Commands:
 
-Our provided pretrained weight is under './test_ckpt/kitti/'. To quickly get our scene completeness-aware depth maps, just use the evaluation command, and it will save frame-by-frame results under './vis/'. Download "val" data split in the Data Preparation section and unzip under 'data/'. The folder structure should be
+Our provided pretrained weight is under './test_ckpt/kitti/'. To quickly get our scene completeness-aware depth maps, just use the evaluation command, and it will save frame-by-frame results under './vis/'. Download "val" data split in the Data Preparation section and unzip under 'data/'. The folder structure and the evaluation command should be
 
       .
       ├── data
@@ -50,8 +50,6 @@ Our provided pretrained weight is under './test_ckpt/kitti/'. To quickly get our
                    ├── 00000.h5
 		     ......
 		     
-		     
-
 	python3 evaluate.py --name kitti --checkpoints_dir './test_ckpt' --test_path ./data
 
 This is the training command is you want ot train the network yourself.
