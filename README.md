@@ -23,9 +23,9 @@ Project page: https://choyingw.github.io/works/SCADC/index.html
 
 # Prerequisite
 
-	Linux
+	Ubuntu 16.04/ 20.04
 	Python 3
-	PyTorch 1.5+ (Tested on 1.5)
+	PyTorch 1.5+ (Tested on 1.5, should be compatiable for following versions)
 	NVIDIA GPU + CUDA CuDNN 
 	Other common libraries: matplotlib, cv2, PIL
 
